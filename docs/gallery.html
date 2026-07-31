@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gallery of the Accident Alert Module prototype." />
+  <title>Gallery | Accident Alert Module</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Accident Alert Module</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero small-hero">
+    <div class="container">
+      <h1>Project Gallery</h1>
+      <p class="subtitle">Minimal image layout with clear captions. No videos.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Prototype Images</h2>
+        <p class="section-intro">Replace placeholders with your real project photos in <code>docs/images/</code>.</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="images/prototype-overview.jpg" alt="Full prototype wiring overview" />
+            <figcaption>Complete prototype setup with ESP32, MPU6050, NEO-6M, and SIM800L.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/mpu6050-connection.jpg" alt="MPU6050 sensor wiring close-up" />
+            <figcaption>MPU6050 wiring used for motion and impact sensing.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/gps-module.jpg" alt="NEO-6M GPS module attached to breadboard" />
+            <figcaption>NEO-6M GPS module for location capture during alert events.</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="images/sim800l-module.jpg" alt="SIM800L GSM module used for emergency communication" />
+            <figcaption>SIM800L module used to send SMS and place emergency calls.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Accident Alert Module</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('show');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>

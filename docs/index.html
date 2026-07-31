@@ -3,69 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ESP32-based embedded crash alert prototype using MPU6050, NEO-6M, and SIM800L." />
-  <title>Accident Alert Module</title>
+  <meta name="description" content="Overview of the ESP32-based Accident Alert Module prototype." />
+  <title>Overview | Accident Alert Module</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Shared Navbar -->
   <nav class="site-nav">
     <div class="container nav-wrap">
       <a href="index.html" class="brand">Accident Alert Module</a>
-
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Overview</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="#overview">Overview</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero small-hero">
     <div class="container">
-      <h1>Accident Alert Module</h1>
+      <h1>Project Overview</h1>
       <p class="subtitle">
-        ESP32-based embedded crash alert prototype for real-time accident detection and emergency notification.
+        ESP32-based crash alert prototype that detects impact, captures GPS location,
+        and sends emergency SMS/call alerts.
       </p>
-      <a href="#overview" class="btn">Explore Project</a>
     </div>
   </header>
 
   <main>
-    <section id="overview" class="section">
+    <section class="section">
       <div class="container">
-        <h2>Project Overview</h2>
+        <h2>What This Project Does</h2>
         <p>
-          This project detects high-impact crash events using an MPU6050 accelerometer/gyroscope,
-          retrieves geographic coordinates via NEO-6M GPS, and triggers emergency communication
-          through the SIM800L GSM module (SMS and call alert).
+          The Accident Alert Module continuously monitors motion data from MPU6050.
+          When a crash-like impact is detected, it fetches coordinates from NEO-6M GPS
+          and sends emergency communication using SIM800L GSM.
         </p>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <h2>Core Components</h2>
+        <h2>Main Components</h2>
         <div class="grid">
           <article class="card card-1">
             <h3>ESP32</h3>
-            <p>Main microcontroller handling sensor fusion, GPS parsing, and GSM communication logic.</p>
+            <p>Runs detection logic and controls sensor/GPS/GSM communication.</p>
           </article>
           <article class="card card-2">
             <h3>MPU6050</h3>
-            <p>Monitors acceleration and orientation changes to identify potential collision events.</p>
+            <p>Captures acceleration and orientation to identify impact events.</p>
           </article>
           <article class="card card-3">
             <h3>NEO-6M GPS</h3>
-            <p>Provides latitude/longitude so responders can locate the accident quickly.</p>
+            <p>Provides accident location coordinates in real time.</p>
           </article>
           <article class="card card-4">
-            <h3>SIM800L</h3>
-            <p>Sends emergency SMS and can place a call to predefined contacts after detection.</p>
+            <h3>SIM800L GSM</h3>
+            <p>Sends SMS and places emergency calls to predefined contacts.</p>
           </article>
         </div>
       </div>
@@ -73,38 +68,21 @@
 
     <section class="section">
       <div class="container">
-        <h2>System Workflow</h2>
-        <ol class="workflow">
-          <li>Continuously read acceleration/gyro data from MPU6050.</li>
-          <li>Evaluate thresholds and crash heuristics on ESP32.</li>
-          <li>On confirmed impact, fetch live coordinates from NEO-6M.</li>
-          <li>Send emergency SMS with location and trigger call via SIM800L.</li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2>Use Case</h2>
-        <p>
-          Designed as a university demonstration prototype for intelligent transportation safety,
-          this module shows how embedded systems can reduce emergency response time after road accidents.
-        </p>
+        <h2>Minimal System Sketch</h2>
+        <pre class="ascii-diagram">[MPU6050] -> [ESP32 Logic] -> [GPS + GSM] -> [Emergency Alert]</pre>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Accident Alert Module • Built with ESP32 + Arduino IDE</p>
+      <p>© 2026 Accident Alert Module</p>
     </div>
   </footer>
 
-  <!-- Mobile nav script -->
   <script>
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
-
     if (navToggle && navLinks) {
       navToggle.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('show');

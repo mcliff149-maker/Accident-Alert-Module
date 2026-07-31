@@ -3,24 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How the Accident Alert Module detects crash events and sends emergency alerts." />
+  <meta name="description" content="How the Accident Alert Module works step by step." />
   <title>How It Works | Accident Alert Module</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Shared Navbar -->
   <nav class="site-nav">
     <div class="container nav-wrap">
       <a href="index.html" class="brand">Accident Alert Module</a>
-
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="index.html#overview">Overview</a></li>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
   </nav>
@@ -28,115 +23,60 @@
   <header class="hero small-hero">
     <div class="container">
       <h1>How It Works</h1>
-      <p class="subtitle">
-        A simple flow of sensing, decision logic, GPS capture, and emergency communication.
-      </p>
-      <a href="index.html" class="btn">← Back to Home</a>
+      <p class="subtitle">Sensor input → crash decision → location capture → emergency alert</p>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <h2>System Diagram (Minimal)</h2>
-        <p class="section-intro">
-          The module continuously monitors motion data and reacts only when crash thresholds are crossed.
-        </p>
-
+        <h2>Flow Diagram</h2>
         <div class="flow-diagram">
           <div class="flow-box">MPU6050<br><span>Impact Sensing</span></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-box">ESP32<br><span>Crash Decision Logic</span></div>
+          <div class="flow-box">ESP32<br><span>Decision Logic</span></div>
           <div class="flow-arrow">→</div>
           <div class="flow-box">NEO-6M<br><span>GPS Coordinates</span></div>
           <div class="flow-arrow">→</div>
-          <div class="flow-box">SIM800L<br><span>SMS / Call Alert</span></div>
+          <div class="flow-box">SIM800L<br><span>SMS / Call</span></div>
         </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <h2>Step-by-Step Workflow</h2>
-
+        <h2>Step-by-Step</h2>
         <div class="steps">
           <article class="step-card">
             <div class="step-number">1</div>
-            <div>
-              <h3>Continuous Sensor Monitoring</h3>
-              <p>
-                The ESP32 continuously reads acceleration and orientation values from the MPU6050.
-                These readings are filtered to reduce noise and false positives.
-              </p>
-            </div>
+            <div><h3>Read Motion Data</h3><p>ESP32 continuously reads MPU6050 acceleration and orientation values.</p></div>
           </article>
-
           <article class="step-card">
             <div class="step-number">2</div>
-            <div>
-              <h3>Crash Detection Decision</h3>
-              <p>
-                If acceleration/tilt patterns exceed predefined safety thresholds, the event is treated
-                as a potential crash and the emergency protocol starts.
-              </p>
-            </div>
+            <div><h3>Detect Crash Pattern</h3><p>Threshold logic determines if the impact indicates a likely collision.</p></div>
           </article>
-
           <article class="step-card">
             <div class="step-number">3</div>
-            <div>
-              <h3>Location Capture</h3>
-              <p>
-                The ESP32 requests current latitude and longitude from the NEO-6M GPS module so the
-                location can be included in the emergency message.
-              </p>
-            </div>
+            <div><h3>Get Location</h3><p>GPS coordinates are retrieved from NEO-6M for emergency reporting.</p></div>
           </article>
-
           <article class="step-card">
             <div class="step-number">4</div>
-            <div>
-              <h3>Emergency Communication</h3>
-              <p>
-                The SIM800L sends an SMS (with coordinates) and can also place a call to predefined contacts
-                for rapid response.
-              </p>
-            </div>
+            <div><h3>Send Alert</h3><p>SIM800L sends SMS and may place a call to emergency contacts.</p></div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Signal Flow (Compact Diagram)</h2>
-        <p class="section-intro">A compact representation for documentation and presentations:</p>
-        <pre class="ascii-diagram">[ MPU6050 ] --> [ ESP32 Logic ] --> [ NEO-6M GPS ] --> [ SIM800L GSM ] --> [ SMS / Call ]</pre>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2>Design Goal</h2>
-        <p>
-          The system is optimized for demonstration simplicity: minimal hardware, clear logic flow,
-          and practical emergency output. This makes it suitable for university prototype showcases.
-        </p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>© 2026 Accident Alert Module • How It Works</p>
+      <p>© 2026 Accident Alert Module</p>
     </div>
   </footer>
 
-  <!-- Mobile nav script -->
   <script>
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
-
     if (navToggle && navLinks) {
       navToggle.addEventListener('click', () => {
         const isOpen = navLinks.classList.toggle('show');
