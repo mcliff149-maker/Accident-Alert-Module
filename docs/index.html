@@ -3,254 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accident Alert Module – Project Showcase</title>
-  <style>
-    :root {
-      --bg: #f7f3ef;
-      --card-bg: #f1efff;
-      --text: #2f2f40;
-      --accent: #3f3f7d;
-      --border: #d9d4ff;
-      --radius: 22px;
-      --overlay: linear-gradient(
-        to top,
-        rgba(26, 24, 48, 0.88),
-        rgba(26, 24, 48, 0.45),
-        rgba(26, 24, 48, 0.06)
-      );
-
-      /* Key sizing */
-      --prototype-media-h: 430px; /* fixed area so 810x938 image does not create giant space */
-      --attempt-card-h: 560px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.45;
-    }
-
-    .container {
-      width: min(1280px, 92vw);
-      margin: 36px auto 64px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: clamp(1.8rem, 2.1vw, 2.5rem);
-      color: #3f3f7d;
-    }
-
-    .section { margin-top: 26px; }
-
-    .media-card {
-      position: relative;
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--card-bg);
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
-    }
-
-    .media-wrap {
-      position: relative;
-      width: 100%;
-      background: #e9e5ff;
-      overflow: hidden;
-    }
-
-    .media-wrap img,
-    .media-wrap video {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      color: #fff;
-      padding: 18px 20px 16px;
-      background: var(--overlay);
-    }
-
-    .caption h3 {
-      margin: 0 0 6px;
-      font-size: clamp(1.25rem, 1.8vw, 1.8rem);
-      font-weight: 800;
-    }
-
-    .caption p {
-      margin: 0;
-      font-size: clamp(0.95rem, 1.05vw, 1.08rem);
-      opacity: 0.98;
-    }
-
-    /* ===== Prototype fix for 810x938 portrait image ===== */
-    .prototype-card .media-wrap {
-      height: var(--prototype-media-h);
-      min-height: 260px;
-      background: #ece9ff;
-    }
-
-    .prototype-card .media-wrap img {
-      object-fit: contain;       /* show full 810x938 image without crop */
-      object-position: center;
-      padding: 10px;             /* small breathing space inside frame */
-    }
-
-    /* ===== Attempts ===== */
-    .attempt-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .attempt-card {
-      height: var(--attempt-card-h);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .attempt-card .media-wrap {
-      height: calc(var(--attempt-card-h) - 132px);
-      background: #e7e4fb;
-    }
-
-    .attempt-card .media-wrap img {
-      object-fit: cover;         /* fills each attempt card nicely */
-      object-position: center;
-    }
-
-    /* Placeholder if image missing */
-    .placeholder {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: #5b5984;
-      font-size: 0.95rem;
-      padding: 14px;
-      background: repeating-linear-gradient(
-        45deg,
-        #f0eeff,
-        #f0eeff 16px,
-        #e7e4ff 16px,
-        #e7e4ff 32px
-      );
-    }
-
-    /* Responsive */
-    @media (max-width: 1100px) {
-      .attempt-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      :root {
-        --prototype-media-h: 320px;
-      }
-
-      .attempt-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .attempt-card {
-        height: auto;
-      }
-
-      .attempt-card .media-wrap {
-        height: 300px;
-      }
-    }
-  </style>
+  <meta name="description" content="Overview of the ESP32-based Accident Alert Module prototype." />
+  <title>Overview | Accident Alert Module</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="container">
+  <nav class="site-nav">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Accident Alert Module</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Overview</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Prototype Sample -->
+  <header class="hero small-hero">
+    <div class="container">
+      <h1>Project Overview</h1>
+
+      <!-- Names + Registration Numbers (bold + italic) -->
+      <p class="team-line">
+        <strong><em>NIYOTWIZERA JOYEUSE — 25/E/03544/EVE</em></strong> &nbsp;|&nbsp;
+        <strong><em>KYOMUHENDO ZIPORAH — 25/U/03430/PS</em></strong> &nbsp;|&nbsp;
+        <strong><em>AKASINGUZA DEBORAH — 25/U/03318/EVE</em></strong> &nbsp;|&nbsp;
+        <strong><em>IRUMBA MATIA — 25/U/03376/PSA</em></strong> &nbsp;|&nbsp;
+        <strong><em>MUTATINA CLIFFORD — 25/U/29978/EVE</em></strong>
+      </p>
+    </div>
+  </header>
+
+  <main>
     <section class="section">
-      <h2>Prototype Sample</h2>
-      <article class="media-card prototype-card">
-        <div class="media-wrap">
-          <img
-            src="assets/project-prototype.jpg"
-            alt="Project prototype sample (810x938)"
-            width="810"
-            height="938"
-            loading="lazy"
-            onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=&quot;placeholder&quot;>Missing: assets/project-prototype.jpg</div>');"
-          />
-        </div>
-        <div class="caption">
-          <h3>Prototype Sample</h3>
-          <p>Physical build layout of the Accident Alert Module during integration phase.</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- Failed Attempts -->
-    <section class="section">
-      <h2>Failed Attempts</h2>
-      <div class="attempt-grid">
-
-        <article class="media-card attempt-card">
-          <div class="media-wrap">
-            <img
-              src="assets/attempt-1.jpg"
-              alt="Attempt 1 output screenshot"
-              loading="lazy"
-              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=&quot;placeholder&quot;>Missing: assets/attempt-1.jpg</div>');"
-            />
-          </div>
-          <div class="caption">
-            <h3>Attempt 1 (Failed)</h3>
-            <p>Initial trial with unstable sensor readings and inconsistent trigger behavior.</p>
-          </div>
-        </article>
-
-        <article class="media-card attempt-card">
-          <div class="media-wrap">
-            <img
-              src="assets/attempt-2.jpg"
-              alt="Attempt 2 output screenshot"
-              loading="lazy"
-              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=&quot;placeholder&quot;>Missing: assets/attempt-2.jpg</div>');"
-            />
-          </div>
-          <div class="caption">
-            <h3>Attempt 2 (Failed)</h3>
-            <p>SMS retries improved, but network response and call handoff were still unreliable.</p>
-          </div>
-        </article>
-
-        <article class="media-card attempt-card">
-          <div class="media-wrap">
-            <img
-              src="assets/attempt-3.jpg"
-              alt="Attempt 3 output screenshot"
-              loading="lazy"
-              onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=&quot;placeholder&quot;>Missing: assets/attempt-3.jpg</div>');"
-            />
-          </div>
-          <div class="caption">
-            <h3>Attempt 3 (Failed)</h3>
-            <p>Partial success achieved; alert flow worked but still needed timing and UI polish.</p>
-          </div>
-        </article>
-
+      <div class="container">
+        <h2>What This Project Does</h2>
+        <p>
+          The Accident Alert Module continuously monitors motion data from MPU6050.
+          When a crash-like impact is detected, it fetches coordinates from NEO-6M GPS
+          and sends emergency communication using SIM800L GSM.
+        </p>
       </div>
     </section>
 
+    <section class="section alt">
+      <div class="container">
+        <h2>Main Components</h2>
+        <div class="gallery-grid">
+          <figure class="overlay-card">
+            <a href="assets/images/esp32.jpg" class="img-lightbox" data-caption="ESP32: Main controller running impact detection, GPS parsing, and GSM trigger logic.">
+              <img src="assets/images/esp32.jpg" alt="ESP32 module" />
+            </a>
+            <figcaption class="overlay-caption">
+              <h3>ESP32</h3>
+              <p>Main controller running impact detection, GPS parsing, and GSM trigger logic.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <a href="assets/images/mpu6050.png" class="img-lightbox" data-caption="MPU6050: Captures acceleration and orientation data used for crash detection thresholds.">
+              <img src="assets/images/mpu6050.png" alt="MPU6050 sensor module" />
+            </a>
+            <figcaption class="overlay-caption">
+              <h3>MPU6050</h3>
+              <p>Captures acceleration and orientation data used for crash detection thresholds.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <a href="assets/images/neo 6m gps.jpg" class="img-lightbox" data-caption="NEO-6M GPS: Provides precise location coordinates for emergency alerts.">
+              <img src="assets/images/neo 6m gps.jpg" alt="NEO-6M GPS module" />
+            </a>
+            <figcaption class="overlay-caption">
+              <h3>NEO-6M GPS</h3>
+              <p>Provides precise location coordinates for emergency alerts.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <a href="assets/images/SIM800L-GSM-Network-Module-5.png" class="img-lightbox" data-caption="SIM800L GSM: Sends emergency SMS and places call notifications.">
+              <img src="assets/images/SIM800L-GSM-Network-Module-5.png" alt="SIM800L GSM module" />
+            </a>
+            <figcaption class="overlay-caption">
+              <h3>SIM800L GSM</h3>
+              <p>Sends emergency SMS and places call notifications to contacts/services.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Accident Alert Module</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close full image">✕</button>
+    <img class="lightbox-image" src="" alt="Expanded project image" />
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
