@@ -124,6 +124,13 @@ html, body {
   transition: transform 0.35s ease;
 }
 
+.overlay-card.full-fit img {
+  height: 420px;          /* larger viewport area */
+  object-fit: contain;    /* show whole image, no crop */
+  background: #f5f2ff;    /* soft backdrop for empty sides */
+  padding: 0.35rem;
+}
+
 .overlay-caption {
   position: absolute;
   left: 0;
@@ -256,4 +263,10 @@ html, body {
     gap: 0.35rem;
   }
   .nav-links.show { display: flex; }
+}
+
+@media (max-width: 760px) {
+  .overlay-card.full-fit img {
+    height: 320px;
+  }
 }
