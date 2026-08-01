@@ -36,7 +36,6 @@ if (lightbox && lightboxImg && lightboxCaption && lightboxClose && triggers.leng
   }
 
   lightboxClose.addEventListener('click', closeLightbox);
-
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
