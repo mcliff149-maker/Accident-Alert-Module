@@ -32,31 +32,39 @@
       <div class="container">
         <h2>Detailed Functional Interaction of Components</h2>
         <div class="text-block">
-          <h3>1) MPU6050 → Impact Sensing Layer</h3>
+          <h3>1) MPU6050 - Impact Sensing Layer</h3>
           <p>
-            The MPU6050 continuously streams acceleration and gyroscope values. The ESP32 reads
-            this data and applies threshold logic to detect high-impact signatures while reducing false positives.
+            The MPU6050 is responsible for detecting abnormal motion that may indicate an accident. Using its accelerometer (and optionally gyroscope), 
+            it provides real-time movement data to the ESP32. When acceleration patterns exceed a defined threshold, it flags a potential 
+            crash event for validation. Its accuracy and threshold tuning strongly affect false positives and detection reliability.
           </p>
 
-          <h3>2) ESP32 → Decision & Control Layer</h3>
+          <h3>2) ESP32 - Decision & Control Layer</h3>
           <p>
-            ESP32 is the orchestration core. It confirms crash likelihood, then transitions from monitoring mode
-            to emergency mode and triggers GPS + GSM actions in sequence.
+            The ESP32 is the brain of the system. 
+            It initializes and manages all connected modules, continuously 
+            reads sensor data, runs the crash-detection logic, and decides when an alert should be triggered. 
+            It also formats emergency messages and sends the required commands to GPS and GSM modules. In short, 
+            it coordinates the full workflow from monitoring to notification.
           </p>
 
-          <h3>3) NEO-6M GPS → Localization Layer</h3>
+          <h3>3) NEO-6M GPS - Location Source</h3>
           <p>
-            After impact confirmation, coordinates are acquired from NEO-6M and formatted for alert messaging.
+            The NEO-6M provides geographic coordinates needed in an emergency alert. After a crash event is detected, the ESP32 
+            requests latitude and longitude from this module so responders or contacts can locate the incident. 
+            If satellite lock is strong, it provides live location; otherwise, the system may rely on the most recent valid fix after retries.
           </p>
 
-          <h3>4) SIM800L GSM → Communication Layer</h3>
+          <h3>4) SIM800L GSM - Communication Layer</h3>
           <p>
-            ESP32 sends AT commands to SIM800L to dispatch SMS (with coordinates) and optionally place emergency calls.
+            The SIM800L handles cellular communication with emergency contacts. Once the ESP32 prepares the alert message, 
+            SIM800L sends it as SMS and can also place a call if configured. This makes the system independent of WiFi and suitable for outdoor/road scenarios, 
+            as long as network coverage and power stability are adequate.
           </p>
 
           <h3>5) End-to-End Behavior</h3>
           <p>
-            Crash detect → GPS acquire → SMS send → call trigger. This sequence keeps the system modular and testable.
+            Crash detect -> GPS acquire -> SMS send -> call trigger. This sequence keeps the system modular and testable.
           </p>
         </div>
       </div>
