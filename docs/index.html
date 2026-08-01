@@ -46,7 +46,9 @@
         <h2>Main Components</h2>
         <div class="gallery-grid">
           <figure class="overlay-card">
-            <img src="assets/images/esp32.jpg" alt="ESP32 module" />
+            <a href="assets/images/esp32.jpg" class="img-lightbox" data-caption="ESP32: Main controller running impact detection, GPS parsing, and GSM trigger logic.">
+              <img src="assets/images/esp32.jpg" alt="ESP32 module" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>ESP32</h3>
               <p>Main controller running impact detection, GPS parsing, and GSM trigger logic.</p>
@@ -54,7 +56,9 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/mpu6050.png" alt="MPU6050 sensor module" />
+            <a href="assets/images/mpu6050.png" class="img-lightbox" data-caption="MPU6050: Captures acceleration and orientation data used for crash detection thresholds.">
+              <img src="assets/images/mpu6050.png" alt="MPU6050 sensor module" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>MPU6050</h3>
               <p>Captures acceleration and orientation data used for crash detection thresholds.</p>
@@ -62,15 +66,19 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/neo 6m gps.jpg" alt="NEO-6M GPS module" />
+            <a href="assets/images/neo 6m gps.jpg" class="img-lightbox" data-caption="NEO-6M GPS: Provides precise location coordinates for emergency alerts.">
+              <img src="assets/images/neo 6m gps.jpg" alt="NEO-6M GPS module" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>NEO-6M GPS</h3>
-              <p>Provides precise location coordinates to include in emergency alerts.</p>
+              <p>Provides precise location coordinates for emergency alerts.</p>
             </figcaption>
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/SIM800L-GSM-Network-Module-5.png" alt="SIM800L GSM module" />
+            <a href="assets/images/SIM800L-GSM-Network-Module-5.png" class="img-lightbox" data-caption="SIM800L GSM: Sends emergency SMS and places call notifications.">
+              <img src="assets/images/SIM800L-GSM-Network-Module-5.png" alt="SIM800L GSM module" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>SIM800L GSM</h3>
               <p>Sends emergency SMS and places call notifications to contacts/services.</p>
@@ -87,15 +95,12 @@
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('show');
-        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    }
-  </script>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close full image">✕</button>
+    <img class="lightbox-image" src="" alt="Expanded project image" />
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

@@ -33,7 +33,9 @@
         <h2>Prototype Sample</h2>
         <div class="gallery-grid">
           <figure class="overlay-card">
-            <img src="assets/images/Project_Prototype.jpg" alt="Project prototype sample" />
+            <a href="assets/images/Project_Prototype.jpg" class="img-lightbox" data-caption="Prototype sample during hardware integration and testing stage.">
+              <img src="assets/images/Project_Prototype.jpg" alt="Project prototype sample" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Prototype Sample</h3>
               <p>Physical build layout of the Accident Alert Module during integration phase.</p>
@@ -45,10 +47,24 @@
 
     <section class="section alt">
       <div class="container">
+        <h2>Challenges Faced (Brief)</h2>
+        <ul class="challenge-list">
+          <li>Sensor noise caused false triggers during early motion-threshold calibration.</li>
+          <li>GPS cold-start delay affected rapid location acquisition in some environments.</li>
+          <li>SIM800L power stability and network readiness required careful timing/retry logic.</li>
+          <li>Balancing sensitivity vs reliability was key to reducing false positives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
         <h2>Failed Attempts</h2>
         <div class="gallery-grid">
           <figure class="overlay-card">
-            <img src="assets/images/attempts-1.png" alt="Failed attempt 1" />
+            <a href="assets/images/attempts-1.png" class="img-lightbox" data-caption="Attempt 1 failed due to unstable trigger behavior and noisy readings.">
+              <img src="assets/images/attempts-1.png" alt="Failed attempt 1" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Attempt 1 (Failed)</h3>
               <p>Initial trial with unstable sensor readings and inconsistent trigger behavior.</p>
@@ -56,7 +72,9 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/attempts-2.png" alt="Failed attempt 2" />
+            <a href="assets/images/attempts-2.png" class="img-lightbox" data-caption="Attempt 2 failed due to GPS timing and communication reliability issues.">
+              <img src="assets/images/attempts-2.png" alt="Failed attempt 2" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Attempt 2 (Failed)</h3>
               <p>Intermediate setup encountered GPS timing and communication reliability issues.</p>
@@ -64,7 +82,9 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/attempts-3.jpg" alt="Failed attempt 3" />
+            <a href="assets/images/attempts-3.jpg" class="img-lightbox" data-caption="Attempt 3 achieved partial functionality but not full alert sequence completion.">
+              <img src="assets/images/attempts-3.jpg" alt="Failed attempt 3" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Attempt 3 (Failed)</h3>
               <p>Partial success but failed to complete full emergency notification cycle.</p>
@@ -74,12 +94,14 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section alt">
       <div class="container">
         <h2>Successful Attempts</h2>
         <div class="gallery-grid">
           <figure class="overlay-card">
-            <img src="assets/images/s-attempt-5(gps_lock).png" alt="Successful GPS lock and SMS dispatch" />
+            <a href="assets/images/s-attempt-5(gps_lock).png" class="img-lightbox" data-caption="Successful GPS lock and SMS dispatch to emergency contacts/services.">
+              <img src="assets/images/s-attempt-5(gps_lock).png" alt="Successful GPS lock and SMS dispatch" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>GPS Lock + SMS Success</h3>
               <p>Confirmed GPS fix and emergency SMS dispatch to configured recipients.</p>
@@ -87,7 +109,9 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/s-attempts-1.png" alt="Successful short emergency call" />
+            <a href="assets/images/s-attempts-1.png" class="img-lightbox" data-caption="Successful short emergency call was placed to configured recipient.">
+              <img src="assets/images/s-attempts-1.png" alt="Successful short emergency call" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Short Call Success</h3>
               <p>Validated call initiation path to emergency contact.</p>
@@ -95,7 +119,9 @@
           </figure>
 
           <figure class="overlay-card">
-            <img src="assets/images/s-attempts-3.png" alt="Successful call and SMS dispatch" />
+            <a href="assets/images/s-attempts-3.png" class="img-lightbox" data-caption="Full successful run: both emergency call and SMS were sent.">
+              <img src="assets/images/s-attempts-3.png" alt="Successful call and SMS dispatch" />
+            </a>
             <figcaption class="overlay-caption">
               <h3>Call + SMS Success</h3>
               <p>Full successful alert: both emergency call and SMS executed.</p>
@@ -112,15 +138,12 @@
     </div>
   </footer>
 
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('show');
-        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    }
-  </script>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close full image">✕</button>
+    <img class="lightbox-image" src="" alt="Expanded project image" />
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script src="assets/js/site.js"></script>
 </body>
 </html>
