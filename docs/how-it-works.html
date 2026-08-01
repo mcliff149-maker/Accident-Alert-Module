@@ -28,6 +28,41 @@
   </header>
 
   <main>
+    <section class="section alt">
+      <div class="container">
+        <h2>Detailed Functional Interaction of Components</h2>
+        <div class="text-block">
+          <h3>1) MPU6050 → Impact Sensing Layer</h3>
+          <p>
+            The MPU6050 continuously streams acceleration and gyroscope values. The ESP32 reads
+            this data and applies threshold logic to detect high-impact signatures while reducing false positives.
+          </p>
+
+          <h3>2) ESP32 → Decision & Control Layer</h3>
+          <p>
+            ESP32 is the orchestration core. It confirms crash likelihood, then transitions from monitoring mode
+            to emergency mode and triggers GPS + GSM actions in sequence.
+          </p>
+
+          <h3>3) NEO-6M GPS → Localization Layer</h3>
+          <p>
+            After impact confirmation, coordinates are acquired from NEO-6M and formatted for alert messaging.
+          </p>
+
+          <h3>4) SIM800L GSM → Communication Layer</h3>
+          <p>
+            ESP32 sends AT commands to SIM800L to dispatch SMS (with coordinates) and optionally place emergency calls.
+          </p>
+
+          <h3>5) End-to-End Behavior</h3>
+          <p>
+            Crash detect → GPS acquire → SMS send → call trigger. This sequence keeps the system modular and testable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moved here: Project Diagrams AFTER detailed explanation -->
     <section class="section">
       <div class="container">
         <h2>Project Diagrams</h2>
@@ -65,48 +100,6 @@
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="container">
-        <h2>Detailed Functional Interaction of Components</h2>
-        <div class="text-block">
-          <h3>1) MPU6050 → Impact Sensing Layer</h3>
-          <p>
-            The MPU6050 continuously streams acceleration and gyroscope values. The ESP32 polls or receives
-            this data at a fixed sampling interval and applies threshold logic to detect high-impact signatures.
-            Filtering and basic debounce timing help reduce false positives from normal vibrations or sudden braking.
-          </p>
-
-          <h3>2) ESP32 → Decision & Control Layer</h3>
-          <p>
-            ESP32 is the orchestration core. It evaluates sensor patterns, confirms crash likelihood, and controls
-            downstream modules. Once trigger conditions are met, ESP32 transitions from monitor mode to emergency mode,
-            initiates GPS acquisition, and then activates GSM notification logic.
-          </p>
-
-          <h3>3) NEO-6M GPS → Localization Layer</h3>
-          <p>
-            After a confirmed impact, ESP32 requests current coordinates from the NEO-6M. If a valid GPS fix is available,
-            latitude/longitude are parsed and packaged into a human-readable message format. If fix is delayed, retry windows
-            can be used before fallback messaging.
-          </p>
-
-          <h3>4) SIM800L GSM → Emergency Communication Layer</h3>
-          <p>
-            The SIM800L receives AT commands from ESP32 over serial. ESP32 first sends SMS (with coordinates and alert text),
-            then optionally places a short emergency call to predefined contacts or services. This dual-channel method increases
-            probability of successful notification.
-          </p>
-
-          <h3>5) End-to-End System Behavior</h3>
-          <p>
-            In normal mode, only sensing and monitoring are active. In emergency mode, the system escalates in sequence:
-            crash detect → GPS acquire → SMS send → call trigger. This modular flow makes the prototype easier to test and tune
-            for reliability in a university demonstration environment.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <section class="section">
       <div class="container">
         <h2>Successful Flow Evidence</h2>
@@ -140,40 +133,6 @@
               <p>Combined alert mode: both call and message were successfully dispatched.</p>
             </figcaption>
           </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container">
-        <h2>Editable Budget Table (All Possible Components)</h2>
-        <p class="section-intro">Click inside any cell to edit values directly.</p>
-
-        <div class="table-wrap">
-          <table class="budget-table" contenteditable="true" spellcheck="false">
-            <thead>
-              <tr>
-                <th>Component</th>
-                <th>Qty</th>
-                <th>Estimated Unit Cost (USD)</th>
-                <th>Estimated Total (USD)</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>ESP32 Dev Board</td><td>1</td><td>8.00</td><td>8.00</td><td>Main controller</td></tr>
-              <tr><td>MPU6050 Sensor</td><td>1</td><td>3.00</td><td>3.00</td><td>Crash sensing</td></tr>
-              <tr><td>NEO-6M GPS Module</td><td>1</td><td>10.00</td><td>10.00</td><td>Location capture</td></tr>
-              <tr><td>SIM800L GSM Module</td><td>1</td><td>7.00</td><td>7.00</td><td>SMS/Call communication</td></tr>
-              <tr><td>SIM Card + Airtime</td><td>1</td><td>5.00</td><td>5.00</td><td>Network service</td></tr>
-              <tr><td>Breadboard</td><td>1</td><td>4.00</td><td>4.00</td><td>Prototyping base</td></tr>
-              <tr><td>Jumper Wires Set</td><td>1</td><td>3.00</td><td>3.00</td><td>Wiring</td></tr>
-              <tr><td>Li-ion Battery / Power Source</td><td>1</td><td>12.00</td><td>12.00</td><td>Portable power</td></tr>
-              <tr><td>Voltage Regulator/Converter</td><td>1</td><td>3.00</td><td>3.00</td><td>Power stability</td></tr>
-              <tr><td>Enclosure (Optional)</td><td>1</td><td>8.00</td><td>8.00</td><td>Packaging/safety</td></tr>
-              <tr><td colspan="3"><strong>Estimated Grand Total</strong></td><td><strong>63.00</strong></td><td>Editable</td></tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>

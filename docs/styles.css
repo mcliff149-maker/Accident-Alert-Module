@@ -23,7 +23,7 @@ html, body {
 
 .container { width: min(1100px, 92%); margin: 0 auto; }
 
-/* Navbar */
+
 .site-nav {
   position: sticky;
   top: 0;
@@ -72,7 +72,7 @@ html, body {
   cursor: pointer;
 }
 
-/* Hero */
+
 .hero {
   background: linear-gradient(135deg, var(--hero-start), var(--hero-end));
   padding: 5rem 0 4rem;
@@ -143,14 +143,14 @@ html, body {
 .overlay-card:hover .overlay-caption { transform: translateY(0%); }
 .overlay-card:focus-within .overlay-caption { transform: translateY(0%); }
 
-/* Challenges */
+
 .challenge-list {
   margin-left: 1.1rem;
   color: #5f5a78;
 }
 .challenge-list li { margin-bottom: 0.45rem; }
 
-/* Budget table */
+
 .table-wrap {
   margin-top: 1rem;
   overflow-x: auto;
@@ -183,7 +183,7 @@ html, body {
   background: #fff7dd;
 }
 
-/* Footer */
+
 .footer {
   border-top: 2px solid var(--border);
   background: var(--bg-soft);
@@ -192,7 +192,7 @@ html, body {
 }
 .footer p { color: #7b7694; font-size: 0.92rem; }
 
-/* Lightbox */
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -238,7 +238,7 @@ html, body {
   font-weight: 700;
 }
 
-/* Mobile */
+
 @media (max-width: 760px) {
   .nav-toggle { display: inline-block; }
   .nav-links {
