@@ -30,39 +30,62 @@
   <main>
     <section class="section">
       <div class="container">
-        <h2>Flow Diagram</h2>
-        <div class="flow-diagram">
-          <div class="flow-box">MPU6050<br><span>Impact Sensing</span></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">ESP32<br><span>Decision Logic</span></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">NEO-6M<br><span>GPS Coordinates</span></div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-box">SIM800L<br><span>SMS / Call</span></div>
+        <h2>Project Diagrams</h2>
+        <div class="gallery-grid">
+          <figure class="overlay-card">
+            <img src="assets/images/seq_diagram_s.png" alt="Project sequence diagram" />
+            <figcaption class="overlay-caption">
+              <h3>Sequence Diagram</h3>
+              <p>Shows the full event flow from sensing to GSM-based emergency communication.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <img src="assets/images/use case diagram.png" alt="Project use case diagram" />
+            <figcaption class="overlay-caption">
+              <h3>Use-Case Diagram</h3>
+              <p>Represents system actors and interaction goals for emergency response handling.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <img src="assets/images/a.a.mod architecture.png" alt="Project architecture diagram" />
+            <figcaption class="overlay-caption">
+              <h3>Architecture Diagram</h3>
+              <p>Illustrates module-level integration between MPU6050, ESP32, GPS, and SIM800L.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <h2>Step-by-Step</h2>
-        <div class="steps">
-          <article class="step-card">
-            <div class="step-number">1</div>
-            <div><h3>Read Motion Data</h3><p>ESP32 continuously reads MPU6050 acceleration and orientation values.</p></div>
-          </article>
-          <article class="step-card">
-            <div class="step-number">2</div>
-            <div><h3>Detect Crash Pattern</h3><p>Threshold logic determines if the impact indicates a likely collision.</p></div>
-          </article>
-          <article class="step-card">
-            <div class="step-number">3</div>
-            <div><h3>Get Location</h3><p>GPS coordinates are retrieved from NEO-6M for emergency reporting.</p></div>
-          </article>
-          <article class="step-card">
-            <div class="step-number">4</div>
-            <div><h3>Send Alert</h3><p>SIM800L sends SMS and may place a call to emergency contacts.</p></div>
-          </article>
+        <h2>Successful Flow Evidence</h2>
+        <div class="gallery-grid">
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempt-5(gps_lock).png" alt="Successful GPS lock and SMS alert" />
+            <figcaption class="overlay-caption">
+              <h3>GPS Lock + SMS Sent</h3>
+              <p>System acquired GPS lock and successfully sent SMS to emergency contacts/services.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempts-1.png" alt="Successful short emergency call" />
+            <figcaption class="overlay-caption">
+              <h3>Short Emergency Call</h3>
+              <p>Demonstrates successful call trigger to an emergency number.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempts-3.png" alt="Successful call and SMS to emergency contacts" />
+            <figcaption class="overlay-caption">
+              <h3>Call + SMS Success</h3>
+              <p>Combined alert mode: both call and message were successfully dispatched.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gallery of the Accident Alert Module prototype." />
+  <meta name="description" content="Gallery of prototype progress, failed attempts, and successful emergency alert runs." />
   <title>Gallery | Accident Alert Module</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,35 +23,83 @@
   <header class="hero small-hero">
     <div class="container">
       <h1>Project Gallery</h1>
-      <p class="subtitle">Minimal image layout with clear captions. No videos.</p>
+      <p class="subtitle">Failed attempts, successful outcomes, and prototype snapshots.</p>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <h2>Prototype Images</h2>
-        <p class="section-intro">Replace placeholders with your real project photos in <code>docs/images/</code>.</p>
-
+        <h2>Prototype Sample</h2>
         <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="images/prototype-overview.jpg" alt="Full prototype wiring overview" />
-            <figcaption>Complete prototype setup with ESP32, MPU6050, NEO-6M, and SIM800L.</figcaption>
+          <figure class="overlay-card">
+            <img src="assets/images/Project_Prototype.jpg" alt="Project prototype sample" />
+            <figcaption class="overlay-caption">
+              <h3>Prototype Sample</h3>
+              <p>Physical build layout of the Accident Alert Module during integration phase.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Failed Attempts</h2>
+        <div class="gallery-grid">
+          <figure class="overlay-card">
+            <img src="assets/images/attempts-1.png" alt="Failed attempt 1" />
+            <figcaption class="overlay-caption">
+              <h3>Attempt 1 (Failed)</h3>
+              <p>Initial trial with unstable sensor readings and inconsistent trigger behavior.</p>
+            </figcaption>
           </figure>
 
-          <figure class="gallery-item">
-            <img src="images/mpu6050-connection.jpg" alt="MPU6050 sensor wiring close-up" />
-            <figcaption>MPU6050 wiring used for motion and impact sensing.</figcaption>
+          <figure class="overlay-card">
+            <img src="assets/images/attempts-2.png" alt="Failed attempt 2" />
+            <figcaption class="overlay-caption">
+              <h3>Attempt 2 (Failed)</h3>
+              <p>Intermediate setup encountered GPS timing and communication reliability issues.</p>
+            </figcaption>
           </figure>
 
-          <figure class="gallery-item">
-            <img src="images/gps-module.jpg" alt="NEO-6M GPS module attached to breadboard" />
-            <figcaption>NEO-6M GPS module for location capture during alert events.</figcaption>
+          <figure class="overlay-card">
+            <img src="assets/images/attempts-3.jpg" alt="Failed attempt 3" />
+            <figcaption class="overlay-caption">
+              <h3>Attempt 3 (Failed)</h3>
+              <p>Partial success but failed to complete full emergency notification cycle.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Successful Attempts</h2>
+        <div class="gallery-grid">
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempt-5(gps_lock).png" alt="Successful GPS lock and SMS dispatch" />
+            <figcaption class="overlay-caption">
+              <h3>GPS Lock + SMS Success</h3>
+              <p>Confirmed GPS fix and emergency SMS dispatch to configured recipients.</p>
+            </figcaption>
           </figure>
 
-          <figure class="gallery-item">
-            <img src="images/sim800l-module.jpg" alt="SIM800L GSM module used for emergency communication" />
-            <figcaption>SIM800L module used to send SMS and place emergency calls.</figcaption>
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempts-1.png" alt="Successful short emergency call" />
+            <figcaption class="overlay-caption">
+              <h3>Short Call Success</h3>
+              <p>Validated call initiation path to emergency contact.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="overlay-card">
+            <img src="assets/images/s-attempts-3.png" alt="Successful call and SMS dispatch" />
+            <figcaption class="overlay-caption">
+              <h3>Call + SMS Success</h3>
+              <p>Full successful alert: both emergency call and SMS executed.</p>
+            </figcaption>
           </figure>
         </div>
       </div>

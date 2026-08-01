@@ -28,7 +28,7 @@ html, body {
 
 .container { width: min(1100px, 92%); margin: 0 auto; }
 
-/* Navbar */
+
 .site-nav {
   position: sticky; top: 0; z-index: 1000;
   background: rgba(253, 250, 246, 0.92);
@@ -58,7 +58,7 @@ html, body {
   color: #4b3f72; border-radius: 0.55rem; padding: 0.35rem 0.6rem; cursor: pointer;
 }
 
-/* Hero */
+
 .hero {
   background: linear-gradient(135deg, var(--hero-start), var(--hero-end));
   padding: 5rem 0 4rem; text-align: center; border-bottom: 2px solid var(--border);
@@ -67,14 +67,14 @@ html, body {
 .hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; color: #4b3f72; }
 .subtitle { max-width: 760px; margin: 0 auto; color: var(--text-soft); }
 
-/* Sections */
+
 .section { padding: 3.5rem 0; background: var(--bg-main); }
 .section.alt { background: var(--bg-alt); }
 .section h2 { margin-bottom: 1rem; color: #4b3f72; }
 .section p { color: var(--text-soft); max-width: 860px; }
 .section-intro { margin-bottom: 1rem; }
 
-/* Cards */
+
 .grid {
   margin-top: 1.2rem;
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
@@ -88,7 +88,7 @@ html, body {
 .card-3 { background: var(--card-3); }
 .card-4 { background: var(--card-4); }
 
-/* Flow diagram */
+
 .flow-diagram {
   margin-top: 1rem; display: grid; grid-template-columns: repeat(7, auto);
   gap: 0.6rem; align-items: center; overflow-x: auto; padding-bottom: 0.4rem;
@@ -100,7 +100,7 @@ html, body {
 .flow-box span { display: block; margin-top: 0.2rem; font-weight: 500; font-size: 0.86rem; color: #6b6780; }
 .flow-arrow { font-size: 1.2rem; color: #8b74e8; font-weight: 900; }
 
-/* Steps */
+
 .steps { display: grid; gap: 0.9rem; margin-top: 1rem; }
 .step-card {
   background: #ffffffcc; border: 1.5px solid var(--border); border-radius: 0.9rem; padding: 1rem;
@@ -111,7 +111,7 @@ html, body {
   display: grid; place-items: center; font-weight: 800;
 }
 
-/* Gallery */
+
 .gallery-grid {
   margin-top: 1rem;
   display: grid;
@@ -136,7 +136,7 @@ html, body {
   font-size: 0.92rem;
 }
 
-/* Minimal sketch */
+
 .ascii-diagram {
   margin-top: 0.7rem;
   background: #fff;
@@ -147,7 +147,7 @@ html, body {
   overflow-x: auto;
 }
 
-/* Footer */
+
 .footer {
   border-top: 2px solid var(--border);
   background: var(--bg-soft);
@@ -156,7 +156,7 @@ html, body {
 }
 .footer p { color: #7b7694; font-size: 0.92rem; }
 
-/* Mobile */
+
 @media (max-width: 760px) {
   .nav-toggle { display: inline-block; }
   .nav-links {
@@ -166,4 +166,69 @@ html, body {
     padding: 0.55rem; display: none; flex-direction: column; gap: 0.35rem;
   }
   .nav-links.show { display: flex; }
+}
+
+
+.gallery-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.overlay-card {
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  border-radius: 0.9rem;
+  background: #fff;
+  min-height: 220px;
+  box-shadow: 0 6px 16px rgba(92, 76, 140, 0.08);
+}
+
+.overlay-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+
+.overlay-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.8rem 0.9rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(63, 58, 87, 0.92), rgba(63, 58, 87, 0.15));
+  transform: translateY(62%);
+  transition: transform 0.35s ease;
+}
+
+.overlay-caption h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.overlay-caption p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #f3f0ff;
+}
+
+
+.overlay-card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay-card:hover .overlay-caption {
+  transform: translateY(0%);
+}
+
+
+.overlay-card:focus-within .overlay-caption {
+  transform: translateY(0%);
 }
